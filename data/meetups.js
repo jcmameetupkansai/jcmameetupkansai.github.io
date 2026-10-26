@@ -22,7 +22,7 @@ window.JCMA_MEETUPS = [
     place: '大阪府羽曳野市 → 大阪市浪速区（新世界）',
     capacity: '先着20名',
     target: 'JCMA関西支部 所属企業の20〜30代（実務経験年数は不問）',
-    fee: '約10,000円（予定）',
+    fee: '7,000円（予定）',
     deadline: '定員（先着20名）に達し次第締切',
     formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdaY39ZUEGqnDhUSpegOFiLtoQXDZ-ncombFjF1VRRkYg4HVA/viewform',   // Googleフォーム（satorun1009@gmail.com 所有）回答用URL
     parts: [
@@ -45,6 +45,7 @@ window.JCMA_MEETUPS = [
       { time: '14:45', title: '近鉄 駒ヶ谷駅 集合', desc: '時間までに駅にお集まりください' },
       { time: '15:00', title: 'ワイナリー見学ツアー（試飲つき）', desc: '〜16:30 ／ 河内ワインの生産現場を、生産者の言葉で学ぶ' },
       { time: '16:30', title: 'バス移動', desc: '〜17:00 ／ 移動時間も自己紹介・情報交換に' },
+      { time: '17:00', title: '降車・会場へ移動', desc: '〜17:30 ／ 新世界エリアへ徒歩で移動（バッファ）' },
       { time: '17:30', title: '新世界で飲み会', desc: '〜19:30 ／ お店は決まり次第お知らせします' }
     ],
     report: ''   // 開催後に、レポート文章を書く（空なら非表示）
