@@ -297,6 +297,7 @@ footer b{display:block;font-family:var(--en);letter-spacing:.22em;color:#fff;fon
       '<div class="event-head reveal"><div class="event-no">'+pad(next.no)+'<small>TH</small></div><div><div class="event-title">『'+esc(next.title)+'』</div><p class="event-sub">〜 '+esc(next.subtitle)+' 〜</p></div></div>'+
       '<dl class="info reveal">'+
         '<div><dt>日程</dt><dd>'+esc(next.dateLabel)+(next.dateNote?'<br><small style="color:var(--mute)">'+esc(next.dateNote)+'</small>':'')+'</dd></div>'+
+        '<div><dt>集合</dt><dd>'+esc(next.meet||next.place)+'</dd></div>'+
         '<div><dt>場所</dt><dd>'+esc(next.place)+'</dd></div>'+
         '<div><dt>対象</dt><dd>'+esc(next.target)+'</dd></div>'+
         '<div><dt>定員</dt><dd>'+esc(next.capacity)+'</dd></div>'+

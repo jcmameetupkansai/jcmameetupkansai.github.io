@@ -16,13 +16,14 @@ window.JCMA_MEETUPS = [
     status: 'upcoming',
     title: '大阪の食の今を学び直す',
     subtitle: 'ローカルコンテンツの再発見と、インバウンド対応の現状視察',
-    dateLabel: '日程調整中',   // 確定したら「2026年12月10日（木）14:00〜」のように書き換え
-    dateNote: '日程は確定次第、このページでお知らせします（平日午後の開催を予定）',
+    dateLabel: '2027年1月13日（水）',   // 開催日
+    dateNote: '14:45 集合・19:30 頃解散',
+    meet: '近鉄 駒ヶ谷駅（14:45 集合）',
     place: '大阪府羽曳野市 → 大阪市浪速区（新世界）',
     capacity: '先着20名',
     target: 'JCMA関西支部 所属企業の20〜30代（実務経験年数は不問）',
     fee: '約10,000円（予定）',
-    deadline: '日程確定後にご案内します',
+    deadline: '定員（先着20名）に達し次第締切',
     formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdaY39ZUEGqnDhUSpegOFiLtoQXDZ-ncombFjF1VRRkYg4HVA/viewform',   // Googleフォーム（satorun1009@gmail.com 所有）回答用URL
     parts: [
       {
@@ -41,10 +42,10 @@ window.JCMA_MEETUPS = [
       }
     ],
     program: [
-      { time: '14:00', title: '近鉄 駒ヶ谷駅 集合／河内ワイン見学・試飲', desc: '約2時間・少人数グループで見学' },
-      { time: '16:00', title: '質疑応答／近鉄線にて大阪市内へ移動', desc: '移動時間も自己紹介・情報交換に' },
-      { time: '17:30', title: '懇親会（新世界エリアの店舗）', desc: '席替えを設計し、全員が複数社と話せる進行に' },
-      { time: '19:30', title: '解散（2次会は任意）', desc: '終了時刻を明示し、参加しやすさを担保' }
+      { time: '14:45', title: '近鉄 駒ヶ谷駅 集合', desc: '時間までに駅にお集まりください' },
+      { time: '15:00', title: 'ワイナリー見学ツアー（試飲つき）', desc: '〜16:30 ／ 河内ワインの生産現場を、生産者の言葉で学ぶ' },
+      { time: '16:30', title: 'バス移動', desc: '〜17:00 ／ 移動時間も自己紹介・情報交換に' },
+      { time: '17:30', title: '新世界で飲み会', desc: '〜19:30 ／ お店は決まり次第お知らせします' }
     ],
     report: ''   // 開催後に、レポート文章を書く（空なら非表示）
   }
@@ -53,7 +54,7 @@ window.JCMA_MEETUPS = [
   ,{
     no: 2, status: 'upcoming',
     title: '', subtitle: '',
-    dateLabel: '', dateNote: '', place: '', capacity: '', target: '', fee: '', deadline: '',
+    dateLabel: '', dateNote: '', meet: '', place: '', capacity: '', target: '', fee: '', deadline: '',
     formUrl: '',
     parts: [ { label:'第一部', place:'', title:'', image:'', desc:'', takeaway:'' } ],
     program: [ { time:'', title:'', desc:'' } ],
