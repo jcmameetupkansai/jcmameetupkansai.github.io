@@ -21,7 +21,7 @@ window.JCMA_MEETUPS = [
     meet: '近鉄 駒ヶ谷駅（14:45 集合）',
     place: '大阪府羽曳野市 → 大阪市浪速区（新世界）',
     capacity: '先着20名',
-    target: 'JCMA関西支部 所属企業の20〜30代（実務経験年数は不問）',
+    target: 'JCMA会員企業・団体 所属の20〜30代（実務経験年数は不問）',
     fee: '6,000円（予定）',
     deadline: '2026年11月末（定員に達し次第、募集終了）',
     formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdaY39ZUEGqnDhUSpegOFiLtoQXDZ-ncombFjF1VRRkYg4HVA/viewform',   // Googleフォーム（satorun1009@gmail.com 所有）回答用URL
