@@ -110,6 +110,20 @@ nav .links a:hover{opacity:1}
 .info div{background:var(--card);padding:18px 22px}
 .info dt{font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:700}
 .info dd{margin:4px 0 0;font-weight:500;color:var(--ink)}
+
+.prog{margin:-10px 0 34px;padding:22px 26px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.prog .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prog .lbl{font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:700}
+.prog .num{font-family:var(--en);font-weight:700;color:var(--ink);font-size:30px;line-height:1.2}
+.prog .num small{font-size:16px;color:var(--mute);margin-left:4px}
+.prog .msg{font-size:14px;color:var(--mute)}
+.prog .bar{height:14px;border-radius:999px;background:var(--line);margin-top:12px;overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold-l));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.prog.full .bar i{background:linear-gradient(90deg,#8c3a58,#c0587d)}
+.prog .dots{display:flex;gap:4px;margin-top:10px}
+.prog .dots b{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.prog .dots b.on{background:var(--gold)}
+.prog.full .dots b.on{background:#c0587d}
 .parts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .part{background:var(--blush);border-radius:18px;padding:30px;border:1px solid var(--line)}
 .part .pimg{width:calc(100% + 60px);margin:-30px -30px 22px;max-width:none;height:200px;object-fit:cover;border-radius:18px 18px 0 0}
@@ -304,6 +318,7 @@ footer b{display:block;font-family:var(--en);letter-spacing:.22em;color:#fff;fon
         '<div><dt>参加費</dt><dd>'+esc(next.fee)+'</dd></div>'+
         '<div><dt>申込締切</dt><dd>'+esc(next.deadline)+'</dd></div>'+
       '</dl>'+
+      (next.countUrl?'<div class="prog reveal" id="prog" hidden></div>':'')+
       '<div class="parts">'+parts+'</div>'+
       (tl?'<ul class="timeline">'+tl+'</ul>':'')+
       '<div class="apply reveal" id="apply"><h3>関西MICEを「面白い」と思える仲間に、会いに来ませんか。</h3><p>所属企業の上長の方にも、研修・視察としてご案内いただけます。まずはお気軽に。</p>'+cta+'</div>';
@@ -314,6 +329,23 @@ footer b{display:block;font-family:var(--en);letter-spacing:.22em;color:#fff;fon
     if(hasForm(next)){
       ['heroCta','navCta'].forEach(function(id){ var a=document.getElementById(id); a.href=next.formUrl; a.target='_blank'; a.rel='noopener'; });
       document.getElementById('heroCta').textContent='参加を申し込む';
+    }
+
+    if(next.countUrl && next.capacityNum){
+      var prog=document.getElementById('prog');
+      fetch(next.countUrl+'&t='+Date.now(),{cache:'no-store'}).then(function(r){return r.text();}).then(function(t){
+        var n=parseInt(String(t).trim().split(/[\r\n,]/)[0],10); if(isNaN(n)||n<0) return;
+        var cap=next.capacityNum, full=n>=cap, left=Math.max(cap-n,0), pct=Math.min(100,Math.round(n/cap*100));
+        var dots=''; for(var i=0;i<cap;i++) dots+='<b class="'+(i<n?'on':'')+'"></b>';
+        prog.className='prog in'+(full?' full':''); prog.hidden=false;
+        prog.innerHTML='<div class="row"><span class="lbl">申込状況</span><span class="num">'+Math.min(n,cap)+'<small>名 / '+cap+'名</small></span></div>'+
+          '<div class="bar"><i style="width:0"></i></div><div class="dots">'+dots+'</div>'+
+          '<p class="msg" style="margin:10px 0 0">'+(full?'定員に達したため、募集を終了しました。':'残り <b>'+left+'名</b>（先着順・定員に達し次第、募集終了）')+'</p>';
+        setTimeout(function(){ prog.querySelector('.bar i').style.width=pct+'%'; },50);
+        if(full){ ['heroCta','navCta'].forEach(function(id){ var a=document.getElementById(id); a.removeAttribute('href'); a.classList.add('disabled'); a.textContent='募集終了'; });
+          var ap=document.querySelector('.apply .btn'); if(ap){ ap.removeAttribute('href'); ap.classList.add('disabled'); ap.textContent='定員に達しました'; } }
+        var b=document.getElementById('heroBadge'); if(b&&!full) b.innerHTML+='<span style="margin-left:8px;opacity:.85">／ 残り'+left+'名</span>';
+      }).catch(function(){});
     }
   } else {
     nb.innerHTML = '<div class="eyebrow reveal">04 &nbsp;NEXT MEETUP</div><h2 class="reveal">次回の開催は、準備中です。</h2><div class="empty reveal">決まり次第、このページでお知らせします。</div>';

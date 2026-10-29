@@ -21,6 +21,8 @@ window.JCMA_MEETUPS = [
     meet: '近鉄 駒ヶ谷駅（14:45 集合）',
     place: '大阪府羽曳野市 → 大阪市浪速区（新世界）',
     capacity: '先着20名',
+    capacityNum: 20,   // 進捗バーの上限人数
+    countUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS0dyEXY8WPU6A9ZMBav1qZXtXeusxlLhiJQXVBl6lemXo_LiqxGnvNQRL19q6hYk_p-TTK3hVhGSyf/pub?gid=408526513&single=true&output=csv',   // 申込件数だけを公開したシートのCSV（個人情報は含まない）
     target: 'JCMA会員企業・団体 所属の20〜30代（実務経験年数は不問）',
     fee: '6,000円（予定）',
     deadline: '2026年11月末（定員に達し次第、募集終了）',
@@ -55,7 +57,7 @@ window.JCMA_MEETUPS = [
   ,{
     no: 2, status: 'upcoming',
     title: '', subtitle: '',
-    dateLabel: '', dateNote: '', meet: '', place: '', capacity: '', target: '', fee: '', deadline: '',
+    dateLabel: '', dateNote: '', meet: '', place: '', capacity: '', capacityNum: 0, countUrl: '', target: '', fee: '', deadline: '',
     formUrl: '',
     parts: [ { label:'第一部', place:'', title:'', image:'', desc:'', takeaway:'' } ],
     program: [ { time:'', title:'', desc:'' } ],
